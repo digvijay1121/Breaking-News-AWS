@@ -1,0 +1,252 @@
+/* ==========================================================================
+   Modern Reset & Editorial Variables
+   ========================================================================== */
+:root {
+    --font-serif: "Georgia", Times, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --color-primary: #111111;
+    --color-accent: #b30000;
+    --color-muted: #555555;
+    --color-border: #dddddd;
+    --color-bg-alt: #f8f9fa;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ffffff;
+    color: var(--color-primary);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   Header Elements (Utility Bar, Logo, Ticker)
+   ========================================================================== */
+
+/* Utility Bar */
+.utility-bar {
+    background: var(--color-primary);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 0;
+    border-bottom: 1px solid #333;
+}
+.utility-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Main Premium Header */
+.main-header {
+    text-align: center;
+    padding: 40px 20px 25px 20px;
+    border-bottom: 4px double var(--color-primary);
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.logo-area h1 {
+    font-family: var(--font-serif);
+    font-size: 52px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+.logo-area .tagline {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-muted);
+    font-size: 14px;
+}
+
+/* Ticker Animation */
+.ticker-wrap {
+    display: flex;
+    background: var(--color-bg-alt);
+    border-bottom: 1px solid var(--color-border);
+    overflow: hidden;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.ticker-title {
+    background: var(--color-accent);
+    color: white;
+    padding: 8px 15px;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 1px;
+    z-index: 2;
+}
+.ticker {
+    display: flex;
+    white-space: nowrap;
+    align-items: center;
+    animation: marquee 25s linear infinite;
+}
+.ticker-item {
+    padding: 0 30px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-primary);
+}
+@keyframes marquee {
+    0% { transform: translate3d(100%, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+}
+
+/* ==========================================================================
+   Premium Asymmetric News Architecture
+   ========================================================================== */
+.layout-wrapper {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px 30px;
+}
+
+.story-card {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 20px;
+}
+
+/* Responsive Fluid Images via Aspect-Ratios */
+.story-image-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background-color: #f0f0f0;
+}
+
+.story-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: opacity 0.2s ease;
+}
+
+.story-card img:hover {
+    opacity: 0.95;
+}
+
+/* 1st Item: Big Headline Banner (Hero Feature) */
+.story-card.hero-feature {
+    grid-column: span 4;
+    display: grid;
+    grid-template-columns: 1.6fr 1.0fr;
+    gap: 32px;
+    border-bottom: 3px solid var(--color-primary);
+    padding-bottom: 35px;
+    margin-bottom: 10px;
+    align-items: start;
+}
+.story-card.hero-feature .story-image-wrapper {
+    margin-bottom: 0;
+    aspect-ratio: 16 / 10;
+}
+
+/* 2nd & 3rd Items: Mid-Tier Secondaries */
+.story-card.secondary-feature {
+    grid-column: span 2;
+}
+.story-card.secondary-feature .story-image-wrapper {
+    aspect-ratio: 16 / 9;
+}
+
+/* 4th & 5th Items: Compact Base Columns */
+.story-card.standard-feature {
+    grid-column: span 4;
+}
+.story-card.standard-feature .story-image-wrapper {
+    aspect-ratio: 16 / 9.5;
+}
+
+/* ==========================================================================
+   Editorial Typography Scale
+   ========================================================================== */
+.story-meta {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--color-accent);
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.story-title {
+    font-family: var(--font-serif);
+    font-weight: 800;
+    color: var(--color-primary);
+    text-decoration: none;
+    line-height: 1.25;
+    display: block;
+    margin-bottom: 12px;
+}
+.story-card.hero-feature .story-title { font-size: 40px; letter-spacing: -0.5px; }
+.story-card.secondary-feature .story-title { font-size: 24px; }
+.story-card.standard-feature .story-title { font-size: 20px; }
+
+.story-title:hover {
+    color: var(--color-accent);
+}
+
+.story-excerpt {
+    font-size: 14.5px;
+    color: var(--color-muted);
+    line-height: 1.6;
+}
+
+/* Footer Section */
+.main-footer {
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 60px;
+    font-size: 13px;
+    color: var(--color-muted);
+}
+
+/* ==========================================================================
+   Responsive Structural Breakpoints
+   ========================================================================== */
+@media (min-width: 768px) {
+    .story-card.standard-feature { 
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 900px) {
+    .story-card.hero-feature {
+        grid-column: span 4;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .story-card.hero-feature .story-image-wrapper {
+        margin-bottom: 16px;
+    }
+    .story-card.secondary-feature { 
+        grid-column: span 4; 
+    }
+}
